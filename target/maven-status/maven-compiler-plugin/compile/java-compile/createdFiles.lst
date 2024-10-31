@@ -1,0 +1,13 @@
+com\acme\Krankenhaus\repository\KrankenhausDB.class
+com\acme\Krankenhaus\entity\package-info.class
+com\acme\Krankenhaus\controller\GetKrankenhausController.class
+com\acme\Krankenhaus\repository\PatientBuilder.class
+com\acme\Krankenhaus\dev\package-info.class
+com\acme\Krankenhaus\service\KrankenhausReadService.class
+com\acme\Krankenhaus\repository\KrankenhausRepository.class
+com\acme\Krankenhaus\package-info.class
+com\acme\Krankenhaus\controller\package-info.class
+com\acme\Krankenhaus\config\package-info.class
+com\acme\Krankenhaus\repository\package-info.class
+com\acme\Krankenhaus\repository\LageortBuilder.class
+com\acme\Krankenhaus\repository\KrankenhausBuilder.class
