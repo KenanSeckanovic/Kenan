@@ -17,20 +17,35 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+/**
+ * REST-Controller, der Endpunkte zum Abrufen von Krankenhausdaten bereitstellt.
+ */
 @RestController
 @RequestMapping(GetKrankenhausController.API_PATH)
 @OpenAPIDefinition(info = @Info(title = "Krankenhaus API", version = "v1"))
 public class GetKrankenhausController {
 
+    /** Der Pfad für die Krankenhaus-API. */
     public static final String API_PATH = "/krankenhaus";
+
     private static final Logger LOGGER = LoggerFactory.getLogger(GetKrankenhausController.class);
 
     private final KrankenhausReadService krankenhausReadService;
 
+    /**
+     * Konstruktor für die Initialisierung des Controllers mit dem erforderlichen Service.
+     *
+     * @param krankenhausReadService der Service, der Krankenhausdaten bereitstellt
+     */
     public GetKrankenhausController(final KrankenhausReadService krankenhausReadService) {
         this.krankenhausReadService = krankenhausReadService;
     }
 
+    /**
+     * Endpunkt zum Abrufen aller Krankenhäuser in der Datenbank.
+     *
+     * @return eine Liste aller Krankenhäuser
+     */
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     @Operation(summary = "Suche alle Krankenhäuser", tags = "Suchen")
     @ApiResponse(responseCode = "200", description = "Alle Krankenhäuser erfolgreich gefunden")
@@ -43,6 +58,12 @@ public class GetKrankenhausController {
         return krankenhaus;
     }
 
+    /**
+     * Endpunkt zum Abrufen eines Krankenhauses anhand der ID.
+     *
+     * @param id die ID des gesuchten Krankenhauses
+     * @return das Krankenhaus mit der angegebenen ID, falls vorhanden
+     */
     @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
     @Operation(summary = "Suche Krankenhaus nach id", tags = "Suchen")
     @ApiResponse(responseCode = "200", description = "krankenhaus erfolgreich gefunden")

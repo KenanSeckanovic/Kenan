@@ -16,8 +16,8 @@
  */
 package com.acme.Krankenhaus.config;
 
-import org.springframework.aot.hint.RuntimeHints;
-import org.springframework.aot.hint.RuntimeHintsRegistrar;
+
+
 
 /// Konfigurationsklasse für die Anwendung bzw. den Microservice.
 ///
@@ -30,8 +30,4 @@ public final class ApplicationConfig {
     // https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#native-image.advanced.custom-hints
     // https://stackoverflow.com/questions/76287163/...
     // ...how-to-specify-the-location-of-a-keystore-file-with-spring-aot-processing
-    /// Registrierung für _GraalVM_:
-    /// - `PEM`- und `CRT`-Dateien für TLS
-    /// - SQL-Skripte für _Flyway_
-
-    }
+}

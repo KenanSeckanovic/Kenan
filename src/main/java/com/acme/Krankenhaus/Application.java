@@ -21,11 +21,7 @@ import com.acme.Krankenhaus.dev.DevConfig;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.ImportRuntimeHints;
-import org.springframework.hateoas.config.EnableHypermediaSupport;
 import static com.acme.Krankenhaus.Banner.TEXT;
-import static org.springframework.hateoas.config.EnableHypermediaSupport.HypermediaType.HAL;
-import static org.springframework.hateoas.support.WebStack.WEBMVC;
 
 /// Klasse mit der `main`-Methode für die Anwendung auf Basis von _Spring Boot_.
 ///

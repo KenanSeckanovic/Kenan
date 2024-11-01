@@ -27,10 +27,34 @@ import org.springframework.context.annotation.ImportRuntimeHints;
 // ...76287163/how-to-specify-the-location-of-a-keystore-file-with-spring-aot-processing
 @ImportRuntimeHints(CertificateRuntimeHints.CertificateResourcesRegistrar.class)
 public class CertificateRuntimeHints {
+
+    /**
+     * Standardkonstruktor für die Klasse CertificateRuntimeHints.
+     * Wird automatisch erstellt, wenn keine zusätzlichen Initialisierungen benötigt werden.
+     */
+    public CertificateRuntimeHints() {
+        // Standardkonstruktor - keine Logik erforderlich
+    }
+
     /**
      * Registrirung der PEM- und CRT-Dateien für GraalVM.
      */
     static class CertificateResourcesRegistrar implements RuntimeHintsRegistrar {
+
+        /**
+         * Standardkonstruktor für die innere Klasse CertificateResourcesRegistrar.
+         * Initialisiert die Klasse für die Registrierung der Ressourcenmuster.
+         */
+        public CertificateResourcesRegistrar() {
+            // Standardkonstruktor - keine Logik erforderlich
+        }
+
+        /**
+         * Registriert Muster für Ressourcen, damit PEM- und CRT-Dateien zur Laufzeit verfügbar sind.
+         *
+         * @param hints       das {@link RuntimeHints}-Objekt zur Registrierung der Ressourcenmuster
+         * @param classLoader der {@link ClassLoader}, der verwendet wird
+         */
         @Override
         public void registerHints(final RuntimeHints hints, final ClassLoader classLoader) {
             hints.resources().registerPattern("*.pem");

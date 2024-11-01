@@ -1,102 +1,21 @@
-2024-10-31T20:36:59.342+01:00  INFO 10356 --- [restartedMain] com.acme.Krankenhaus.Application         : Starting Application using Java 23.0.1 with PID 10356 (C:\Users\kenan\IdeaProjects\Krankenhaus\target\classes started by kenan in C:\Users\kenan\IdeaProjects\Krankenhaus)
-2024-10-31T20:36:59.347+01:00 DEBUG 10356 --- [restartedMain] com.acme.Krankenhaus.Application         : Running with Spring Boot v3.4.0-RC1, Spring v6.2.0-RC3
-2024-10-31T20:36:59.349+01:00  INFO 10356 --- [restartedMain] com.acme.Krankenhaus.Application         : The following 1 profile is active: "dev"
-2024-10-31T20:36:59.439+01:00  INFO 10356 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-10-31T20:36:59.440+01:00  INFO 10356 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-10-31T20:37:02.251+01:00  INFO 10356 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
-2024-10-31T20:37:02.308+01:00  INFO 10356 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-31T20:37:02.310+01:00  INFO 10356 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-10-31T20:37:02.502+01:00  INFO 10356 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-31T20:37:02.503+01:00  INFO 10356 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3060 ms
-2024-10-31T20:37:03.674+01:00  INFO 10356 --- [restartedMain] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\kenan\.keystore] using alias [tomcat] with trust store [null]
-2024-10-31T20:37:03.705+01:00  INFO 10356 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
-2024-10-31T20:37:03.718+01:00  INFO 10356 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-10-31T20:37:03.857+01:00 DEBUG 10356 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2024-10-31T20:37:04.085+01:00  INFO 10356 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
-2024-10-31T20:37:04.112+01:00  INFO 10356 --- [restartedMain] com.acme.Krankenhaus.Application         : Started Application in 5.711 seconds (process running for 6.515)
-2024-10-31T20:37:04.239+01:00 DEBUG 10356 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
-2024-10-31T20:37:04.247+01:00 DEBUG 10356 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
-2024-10-31T20:39:40.561+01:00  INFO 10356 --- [tomcat-handler-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-31T20:39:40.565+01:00  INFO 10356 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-31T20:39:40.607+01:00 DEBUG 10356 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-10-31T20:39:40.612+01:00 DEBUG 10356 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-10-31T20:39:40.614+01:00 DEBUG 10356 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-10-31T20:39:41.503+01:00 DEBUG 10356 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@14355217
-2024-10-31T20:39:41.512+01:00 DEBUG 10356 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5b3fb1a9
-2024-10-31T20:39:41.515+01:00 DEBUG 10356 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='true': request parameters and headers will be shown which may lead to unsafe logging of potentially sensitive data
-2024-10-31T20:39:41.517+01:00  INFO 10356 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 950 ms
-2024-10-31T20:39:41.583+01:00 DEBUG 10356 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : GET "/krankenhaus", parameters={}
-2024-10-31T20:39:41.609+01:00 DEBUG 10356 --- [tomcat-handler-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.acme.Krankenhaus.controller.GetKrankenhausController#getAll()
-2024-10-31T20:39:41.643+01:00  INFO 10356 --- [tomcat-handler-5] c.a.K.c.GetKrankenhausController         : Suche nach allen Krankenhäuser in der Datenbank gestartet
-2024-10-31T20:39:41.644+01:00 DEBUG 10356 --- [tomcat-handler-5] c.a.K.service.KrankenhausReadService     : Starte Abruf aller Krankenhaus
-2024-10-31T20:39:41.658+01:00  INFO 10356 --- [tomcat-handler-5] c.a.K.c.GetKrankenhausController         : Suche nach allen Krankenhäuser in der Datenbank abgeschlossen
-2024-10-31T20:39:41.828+01:00 DEBUG 10356 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-10-31T21:25:24.751+01:00 DEBUG 10356 --- [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
-2024-10-31T21:25:24.783+01:00  INFO 10356 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-10-31T21:25:24.814+01:00  INFO 10356 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-10-31T21:26:17.773+01:00  INFO 5656 --- [restartedMain] com.acme.Krankenhaus.Application         : Starting Application using Java 23.0.1 with PID 5656 (C:\Users\kenan\IdeaProjects\Krankenhaus\target\classes started by kenan in C:\Users\kenan\IdeaProjects\Krankenhaus)
-2024-10-31T21:26:17.775+01:00 DEBUG 5656 --- [restartedMain] com.acme.Krankenhaus.Application         : Running with Spring Boot v3.4.0-RC1, Spring v6.2.0-RC3
-2024-10-31T21:26:17.776+01:00  INFO 5656 --- [restartedMain] com.acme.Krankenhaus.Application         : The following 1 profile is active: "dev"
-2024-10-31T21:26:17.854+01:00  INFO 5656 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-10-31T21:26:17.854+01:00  INFO 5656 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-10-31T21:26:19.798+01:00  INFO 5656 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
-2024-10-31T21:26:19.824+01:00  INFO 5656 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-31T21:26:19.825+01:00  INFO 5656 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-10-31T21:26:19.900+01:00  INFO 5656 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-31T21:26:19.901+01:00  INFO 5656 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2046 ms
-2024-10-31T21:26:20.833+01:00  INFO 5656 --- [restartedMain] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\kenan\.keystore] using alias [tomcat] with trust store [null]
-2024-10-31T21:26:20.864+01:00  INFO 5656 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
-2024-10-31T21:26:20.876+01:00  INFO 5656 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-10-31T21:26:20.985+01:00 DEBUG 5656 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2024-10-31T21:26:21.167+01:00  INFO 5656 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
-2024-10-31T21:26:21.191+01:00  INFO 5656 --- [restartedMain] com.acme.Krankenhaus.Application         : Started Application in 4.182 seconds (process running for 4.928)
-2024-10-31T21:26:21.317+01:00 DEBUG 5656 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
-2024-10-31T21:26:21.324+01:00 DEBUG 5656 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
-2024-10-31T22:03:14.621+01:00 DEBUG 5656 --- [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
-2024-10-31T22:03:14.654+01:00  INFO 5656 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-10-31T22:03:14.694+01:00  INFO 5656 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2024-10-31T22:06:55.569+01:00  INFO 18304 --- [restartedMain] com.acme.Krankenhaus.Application         : Starting Application using Java 23.0.1 with PID 18304 (C:\Users\kenan\IdeaProjects\Krankenhaus\target\classes started by kenan in C:\Users\kenan\IdeaProjects\Krankenhaus)
-2024-10-31T22:06:55.571+01:00 DEBUG 18304 --- [restartedMain] com.acme.Krankenhaus.Application         : Running with Spring Boot v3.4.0-RC1, Spring v6.2.0-RC3
-2024-10-31T22:06:55.572+01:00  INFO 18304 --- [restartedMain] com.acme.Krankenhaus.Application         : The following 1 profile is active: "dev"
-2024-10-31T22:06:55.666+01:00  INFO 18304 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-10-31T22:06:55.667+01:00  INFO 18304 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-10-31T22:06:57.982+01:00  INFO 18304 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
-2024-10-31T22:06:58.014+01:00  INFO 18304 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-10-31T22:06:58.015+01:00  INFO 18304 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-10-31T22:06:58.098+01:00  INFO 18304 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-10-31T22:06:58.099+01:00  INFO 18304 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2432 ms
-2024-10-31T22:06:59.495+01:00  INFO 18304 --- [restartedMain] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\kenan\.keystore] using alias [tomcat] with trust store [null]
-2024-10-31T22:06:59.525+01:00  INFO 18304 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
-2024-10-31T22:06:59.539+01:00  INFO 18304 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-10-31T22:06:59.702+01:00 DEBUG 18304 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
-2024-10-31T22:06:59.954+01:00  INFO 18304 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
-2024-10-31T22:06:59.986+01:00  INFO 18304 --- [restartedMain] com.acme.Krankenhaus.Application         : Started Application in 5.277 seconds (process running for 6.096)
-2024-10-31T22:07:00.114+01:00 DEBUG 18304 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
-2024-10-31T22:07:00.119+01:00 DEBUG 18304 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
-2024-10-31T22:07:40.988+01:00  INFO 18304 --- [tomcat-handler-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-10-31T22:07:40.989+01:00  INFO 18304 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-10-31T22:07:40.992+01:00 DEBUG 18304 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-10-31T22:07:40.995+01:00 DEBUG 18304 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-10-31T22:07:40.998+01:00 DEBUG 18304 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-10-31T22:07:41.197+01:00 DEBUG 18304 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4f41493f
-2024-10-31T22:07:41.204+01:00 DEBUG 18304 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@539eb169
-2024-10-31T22:07:41.205+01:00 DEBUG 18304 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='true': request parameters and headers will be shown which may lead to unsafe logging of potentially sensitive data
-2024-10-31T22:07:41.206+01:00  INFO 18304 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 216 ms
-2024-10-31T22:07:41.254+01:00 DEBUG 18304 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : GET "/krankenhaus", parameters={}
-2024-10-31T22:07:41.274+01:00 DEBUG 18304 --- [tomcat-handler-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.acme.Krankenhaus.controller.GetKrankenhausController#getAll()
-2024-10-31T22:07:41.302+01:00  INFO 18304 --- [tomcat-handler-5] c.a.K.c.GetKrankenhausController         : Suche nach allen Krankenhäuser in der Datenbank gestartet
-2024-10-31T22:07:41.303+01:00 DEBUG 18304 --- [tomcat-handler-5] c.a.K.service.KrankenhausReadService     : Starte Abruf aller Krankenhaus
-2024-10-31T22:07:41.317+01:00  INFO 18304 --- [tomcat-handler-5] c.a.K.c.GetKrankenhausController         : Suche nach allen Krankenhäuser in der Datenbank abgeschlossen
-2024-10-31T22:07:41.473+01:00 DEBUG 18304 --- [tomcat-handler-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-10-31T22:08:14.023+01:00 DEBUG 18304 --- [tomcat-handler-6] o.s.web.servlet.DispatcherServlet        : GET "/krankenhaus/f7d99022-3ea8-4a03-aed1-8574e57cab08", parameters={}
-2024-10-31T22:08:14.025+01:00 DEBUG 18304 --- [tomcat-handler-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.acme.Krankenhaus.controller.GetKrankenhausController#getByID(String)
-2024-10-31T22:08:14.045+01:00  INFO 18304 --- [tomcat-handler-6] c.a.K.c.GetKrankenhausController         : Suche nach Krankenhaus mit id: f7d99022-3ea8-4a03-aed1-8574e57cab08
-2024-10-31T22:08:14.050+01:00 DEBUG 18304 --- [tomcat-handler-6] c.a.K.service.KrankenhausReadService     : Starte Suche nach Krankenhaus mit id: f7d99022-3ea8-4a03-aed1-8574e57cab08
-2024-10-31T22:08:14.051+01:00 DEBUG 18304 --- [tomcat-handler-6] c.a.K.repository.KrankenhausRepository   : Suche nach Krankenhaus mit id: f7d99022-3ea8-4a03-aed1-8574e57cab08
-2024-10-31T22:08:14.055+01:00 DEBUG 18304 --- [tomcat-handler-6] c.a.K.repository.KrankenhausRepository   : Ergebnis der Suche nach id f7d99022-3ea8-4a03-aed1-8574e57cab08: Optional[Krankenhaus{uuid=f7d99022-3ea8-4a03-aed1-8574e57cab08, name='Baden-Baden', lageort='Lageort{stadt='Baden-Baden', strasse='Kleine Str. 8', plz='76532'}', kapazitaet=200, patient=[Patient{vorname='Günther', nachname='Jauch', alter=80, krankheitsbild='Diabetes'}]}]
-2024-10-31T22:08:14.064+01:00 DEBUG 18304 --- [tomcat-handler-6] c.a.K.service.KrankenhausReadService     : Suche nach Krankenhaus mit id beendet
-2024-10-31T22:08:14.065+01:00  INFO 18304 --- [tomcat-handler-6] c.a.K.c.GetKrankenhausController         : Suche nach Krankenhaus mit id f7d99022-3ea8-4a03-aed1-8574e57cab08 abgeschlossen
-2024-10-31T22:08:14.068+01:00 DEBUG 18304 --- [tomcat-handler-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-10-31T22:09:46.776+01:00 DEBUG 18304 --- [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
-2024-10-31T22:09:46.782+01:00  INFO 18304 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2024-10-31T22:09:46.797+01:00  INFO 18304 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-11-01T11:53:06.782+01:00  INFO 8284 --- [restartedMain] com.acme.Krankenhaus.Application         : Starting Application using Java 23.0.1 with PID 8284 (C:\Users\kenan\IdeaProjects\Krankenhaus\target\classes started by kenan in C:\Users\kenan\IdeaProjects\Krankenhaus)
+2024-11-01T11:53:06.789+01:00 DEBUG 8284 --- [restartedMain] com.acme.Krankenhaus.Application         : Running with Spring Boot v3.4.0-RC1, Spring v6.2.0-RC3
+2024-11-01T11:53:06.789+01:00  INFO 8284 --- [restartedMain] com.acme.Krankenhaus.Application         : The following 1 profile is active: "dev"
+2024-11-01T11:53:06.826+01:00  INFO 8284 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-01T11:53:06.826+01:00  INFO 8284 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-01T11:53:07.736+01:00  INFO 8284 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (https)
+2024-11-01T11:53:07.748+01:00  INFO 8284 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-01T11:53:07.748+01:00  INFO 8284 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-01T11:53:07.781+01:00  INFO 8284 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-01T11:53:07.782+01:00  INFO 8284 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 956 ms
+2024-11-01T11:53:08.289+01:00  INFO 8284 --- [restartedMain] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-8080], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [C:\Users\kenan\.keystore] using alias [tomcat] with trust store [null]
+2024-11-01T11:53:08.297+01:00  INFO 8284 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (https) with context path '/'
+2024-11-01T11:53:08.302+01:00  INFO 8284 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-01T11:53:08.355+01:00 DEBUG 8284 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2024-11-01T11:53:08.439+01:00  INFO 8284 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
+2024-11-01T11:53:08.448+01:00  INFO 8284 --- [restartedMain] com.acme.Krankenhaus.Application         : Started Application in 2.033 seconds (process running for 2.315)
+2024-11-01T11:53:08.486+01:00 DEBUG 8284 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2024-11-01T11:53:08.488+01:00 DEBUG 8284 --- [restartedMain] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2024-11-01T11:53:13.628+01:00 DEBUG 8284 --- [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2024-11-01T11:53:13.630+01:00  INFO 8284 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-11-01T11:53:13.634+01:00  INFO 8284 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

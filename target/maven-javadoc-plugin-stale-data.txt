@@ -22,11 +22,11 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Krankenhaus 2024.10.1 API'
+'kunde 2024.10.1 API'
 -use
 -version
 -windowtitle
-'Krankenhaus 2024.10.1 API'
+'kunde 2024.10.1 API'
 com.acme.Krankenhaus
 com.acme.Krankenhaus.config
 com.acme.Krankenhaus.controller
@@ -34,20 +34,20 @@ com.acme.Krankenhaus.dev
 com.acme.Krankenhaus.entity
 com.acme.Krankenhaus.repository
 com.acme.Krankenhaus.service
-C:\Users\kenan\IdeaProjects\Krankenhaus\src\main\java = 1730313156973
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\generated-sources\annotations = 1730406359342
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\allclasses-index.html = 1730409153045
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\allpackages-index.html = 1730409153060
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\constant-values.html = 1730409152641
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\element-list = 1730409152425
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\help-doc.html = 1730409153207
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\index-all.html = 1730409153182
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\index.html = 1730409152992
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\member-search-index.js = 1730409153105
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\module-search-index.js = 1730409153068
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\overview-summary.html = 1730409153193
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\overview-tree.html = 1730409152975
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\package-search-index.js = 1730409153090
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\search.html = 1730409153187
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\tag-search-index.js = 1730409153109
-C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\type-search-index.js = 1730409153093
+C:\Users\kenan\IdeaProjects\Krankenhaus\src\main\java = 1730411454791
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\generated-sources\annotations = 1730464481992
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\allclasses-index.html = 1730464493595
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\allpackages-index.html = 1730464493597
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\constant-values.html = 1730464493506
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\element-list = 1730464493438
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\help-doc.html = 1730464493630
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\index-all.html = 1730464493625
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\index.html = 1730464493578
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\member-search-index.js = 1730464493600
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\module-search-index.js = 1730464493598
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\overview-summary.html = 1730464493628
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\overview-tree.html = 1730464493574
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\package-search-index.js = 1730464493599
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\search.html = 1730464493626
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\tag-search-index.js = 1730464493600
+C:\Users\kenan\IdeaProjects\Krankenhaus\target\site\apidocs\type-search-index.js = 1730464493599

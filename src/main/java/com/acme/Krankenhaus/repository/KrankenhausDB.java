@@ -1,19 +1,9 @@
 package com.acme.Krankenhaus.repository;
 
 import com.acme.Krankenhaus.entity.Krankenhaus;
-import java.math.BigDecimal;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
-import java.time.LocalDate;
-import java.util.Currency;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import static java.math.BigDecimal.ZERO;
-import static java.util.Collections.emptyList;
-import static java.util.Locale.GERMANY;
 
 /// Emulation der Datenbasis für persistente Krankenhausn.
 ///
