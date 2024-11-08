@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.acme.Krankenhaus"},{"l":"com.acme.Krankenhaus.config"},{"l":"com.acme.Krankenhaus.controller"},{"l":"com.acme.Krankenhaus.dev"},{"l":"com.acme.Krankenhaus.entity"},{"l":"com.acme.Krankenhaus.repository"},{"l":"com.acme.Krankenhaus.service"}];updateSearchResults();
