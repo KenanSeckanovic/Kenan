@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="" lang="">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>KrankenhausRepository xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../apidocs/com/acme/Krankenhaus/repository/KrankenhausRepository.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> com.acme.Krankenhaus.repository;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> com.acme.Krankenhaus.entity.Krankenhaus;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> org.slf4j.Logger;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> org.slf4j.LoggerFactory;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> org.springframework.lang.NonNull;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> org.springframework.stereotype.Repository;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.util.Map;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> java.util.Objects;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> java.util.Optional;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> com.acme.Krankenhaus.repository.KrankenhausDB.KRANKENHAUSER;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> java.util.Collections.emptyList;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment"> * Repository-Klasse für den Zugriff auf {@link Krankenhaus}-Daten.</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> * Diese Klasse stellt Methoden zum Abrufen von Krankenhausdaten aus einer statischen Datenquelle bereit.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  @Repository
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a name="KrankenhausRepository" href="../../../../com/acme/Krankenhaus/repository/KrankenhausRepository.html#KrankenhausRepository">KrankenhausRepository</a> {
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger LOGGER = LoggerFactory.getLogger(KrankenhausRepository.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     * Konstruktor für das KrankenhausRepository.</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment">     * Aktuell keine speziellen Initialisierungen erforderlich.</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      <strong class="jxr_keyword">public</strong> <a name="KrankenhausRepository" href="../../../../com/acme/Krankenhaus/repository/KrankenhausRepository.html#KrankenhausRepository">KrankenhausRepository</a>() {
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>          <em class="jxr_comment">// Kein spezieller Initialisierungsbedarf</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      }
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">     * Ruft alle Krankenhäuser ab.</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">     * @return eine Liste aller verfügbaren {@link Krankenhaus}-Objekte</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      <strong class="jxr_keyword">public</strong> @NonNull List&lt;Krankenhaus&gt; findAll() {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>          <strong class="jxr_keyword">return</strong> KRANKENHAUSER;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      }
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment">     * Sucht ein Krankenhaus anhand der angegebenen ID.</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">     * @param id die ID des gesuchten Krankenhauses</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment">     * @return ein {@link Optional} mit dem gefundenen Krankenhaus,</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment">     *         oder ein leeres Optional, wenn kein Krankenhaus mit der angegebenen ID gefunden wurde</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <strong class="jxr_keyword">public</strong> @NonNull Optional&lt;Krankenhaus&gt; findByID(@NonNull <strong class="jxr_keyword">final</strong> String id) {
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          LOGGER.debug(<span class="jxr_string">"Suche nach Krankenhaus mit id: {}"</span>, id);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          Optional&lt;Krankenhaus&gt; krankenhaus = KRANKENHAUSER.stream()
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>              .filter(a -&gt; Objects.equals(id, a.getUuid().toString()))
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              .findFirst();
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          LOGGER.debug(<span class="jxr_string">"Ergebnis der Suche nach id {}: {}"</span>, id, krankenhaus);
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          <strong class="jxr_keyword">return</strong> krankenhaus;
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      }
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_javadoccomment">     * Sucht nach Krankenhäusern basierend auf den angegebenen Suchkriterien.</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_javadoccomment">     * Unterstützte Kriterien: "standort" und "name".</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  <em class="jxr_javadoccomment">     * @param suchkriterien eine Map von Suchkriterien zur Filterung</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_javadoccomment">     * @return eine Liste der gefundenen Krankenhäuser oder eine leere Liste, wenn keine Übereinstimmungen vorhanden sind</em>
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      <strong class="jxr_keyword">public</strong> @NonNull List&lt;Krankenhaus&gt; find(<strong class="jxr_keyword">final</strong> Map&lt;String, ? <strong class="jxr_keyword">extends</strong> List&lt;String&gt;&gt; suchkriterien) {
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          LOGGER.debug(<span class="jxr_string">"find: suchkriterien={}"</span>, suchkriterien);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          <strong class="jxr_keyword">if</strong> (suchkriterien.isEmpty()) {
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>              <strong class="jxr_keyword">return</strong> findAll();
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          }
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">var</strong> entry : suchkriterien.entrySet()) {
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>              <strong class="jxr_keyword">switch</strong> (entry.getKey()) {
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>                  <strong class="jxr_keyword">case</strong> <span class="jxr_string">"standort"</span> -&gt; {
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>                      <strong class="jxr_keyword">return</strong> findByStandort(entry.getValue().getFirst());
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>                  }
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>                  <strong class="jxr_keyword">case</strong> <span class="jxr_string">"name"</span> -&gt; {
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>                      <strong class="jxr_keyword">return</strong> findByName(entry.getValue().getFirst());
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>                  }
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>                  <strong class="jxr_keyword">default</strong> -&gt; {
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>                      LOGGER.debug(<span class="jxr_string">"find: ungueltiges Suchkriterium={}"</span>, entry.getKey());
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>                      <strong class="jxr_keyword">return</strong> emptyList();
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>                  }
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>              }
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          }
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          <strong class="jxr_keyword">return</strong> emptyList();
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>      }
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  <em class="jxr_javadoccomment">     * Sucht nach Krankenhäusern, deren Namen das angegebene Schlüsselwort enthalten.</em>
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  <em class="jxr_javadoccomment">     * @param name der Name oder ein Teil davon, nach dem gesucht wird</em>
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  <em class="jxr_javadoccomment">     * @return eine Liste der gefundenen {@link Krankenhaus}-Objekte mit übereinstimmendem Namen</em>
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>      <strong class="jxr_keyword">public</strong> @NonNull List&lt;Krankenhaus&gt; findByName(<strong class="jxr_keyword">final</strong> String name) {
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          LOGGER.debug(<span class="jxr_string">"findByName: name={}"</span>, name);
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">var</strong> krankenhaeuser = KRANKENHAUSER.stream()
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              .filter(krankenhaus -&gt; krankenhaus.getName().contains(name))
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>             .toList();
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>         LOGGER.debug(<span class="jxr_string">"findByName: krankenhaeuser={}"</span>, krankenhaeuser);
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         <strong class="jxr_keyword">return</strong> krankenhaeuser;
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>     }
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> 
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_javadoccomment">     * Sucht nach Krankenhäusern, die sich im angegebenen Standort befinden.</em>
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_javadoccomment">     * @param standort der Standort (Stadt) des Krankenhauses</em>
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> <em class="jxr_javadoccomment">     * @return eine Liste der gefundenen {@link Krankenhaus}-Objekte mit übereinstimmendem Standort</em>
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>     <strong class="jxr_keyword">public</strong> @NonNull List&lt;Krankenhaus&gt; findByStandort(<strong class="jxr_keyword">final</strong> String standort) {
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>         LOGGER.debug(<span class="jxr_string">"findByStandort: standort={}"</span>, standort);
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">var</strong> krankenhaeuser = KRANKENHAUSER.stream()
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>             .filter(krankenhaus -&gt; krankenhaus.getLageort().getStadt().contains(standort))
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>             .toList();
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         LOGGER.debug(<span class="jxr_string">"findByStandort: krankenhaeuser={}"</span>, krankenhaeuser);
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>         <strong class="jxr_keyword">return</strong> krankenhaeuser;
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>     }
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> }
+</pre>
+<hr/>
+<div id="footer">© 2016–2024 <a href="https://www.h-ka.de">Hochschule Karlsruhe</a></div>
+</body>
+</html>
