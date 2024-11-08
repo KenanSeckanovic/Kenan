@@ -101,8 +101,7 @@ public class Patient {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Patient patient = (Patient) o;
+        if (!(o instanceof Patient patient)) return false;
         return alter == patient.alter &&
             Objects.equals(vorname, patient.vorname) &&
             Objects.equals(nachname, patient.nachname) &&

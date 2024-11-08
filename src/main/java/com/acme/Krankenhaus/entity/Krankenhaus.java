@@ -114,8 +114,7 @@ public class Krankenhaus {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Krankenhaus that = (Krankenhaus) o;
+        if (!(o instanceof Krankenhaus that)) return false;
         return Objects.equals(uuid, that.uuid);
     }
 

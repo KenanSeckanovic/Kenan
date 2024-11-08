@@ -6,8 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+import java.util.Map;
 
 /**
  * Service-Klasse zur Bereitstellung von Leseoperationen für {@link Krankenhaus}-Objekte.
@@ -15,7 +15,6 @@ import java.util.List;
  */
 @Service
 public class KrankenhausReadService {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(KrankenhausReadService.class);
     private final KrankenhausRepository krankenhausRepository;
 
@@ -29,20 +28,49 @@ public class KrankenhausReadService {
     }
 
     /**
-     * Ruft alle Krankenhäuser aus der Datenbank ab.
+     * Sucht nach Krankenhäusern basierend auf den angegebenen Suchkriterien.
+     * Unterstützte Kriterien: "name" und "standort".
      *
-     * @return eine Liste aller Krankenhäuser
-     * @throws IllegalArgumentException wenn keine Krankenhäuser in der Datenbank gefunden wurden
+     * @param suchkriterien eine Map der Suchkriterien zur Filterung der Krankenhäuser
+     * @return eine Liste der gefundenen Krankenhäuser
+     * @throws NotFoundException wenn keine Krankenhäuser den Suchkriterien entsprechen
      */
-    public @NonNull List<Krankenhaus> getAll() {
-        LOGGER.debug("Starte Abruf aller Krankenhaus");
+    public @NonNull List<Krankenhaus> find(@NonNull final Map<String, List<String>> suchkriterien) {
+        LOGGER.debug("find: suchkriterien={}", suchkriterien);
 
-        List<Krankenhaus> krankenhauser = krankenhausRepository.getAll();
-        if (krankenhauser.isEmpty()) {
-            throw new IllegalArgumentException("Keine Autohäuser in der Datenbank gefunden.");
+        if (suchkriterien.isEmpty()) {
+            return krankenhausRepository.findAll();
         }
 
-        return krankenhauser;
+        if (suchkriterien.size() == 1) {
+            final var namen = suchkriterien.get("name");
+            if (namen != null && namen.size() == 1) {
+                final var krankenhaeuser = krankenhausRepository.findByName(namen.getFirst());
+                if (krankenhaeuser.isEmpty()) {
+                    throw new NotFoundException(suchkriterien);
+                }
+                LOGGER.debug("find (name): {}", krankenhaeuser);
+                return krankenhaeuser;
+            }
+
+            final var standort = suchkriterien.get("standort");
+            if (standort != null && standort.size() == 1) {
+                final var krankenhaeuser = krankenhausRepository
+                    .findByStandort(standort.getFirst());
+                if (krankenhaeuser.isEmpty()) {
+                    throw new NotFoundException(suchkriterien);
+                }
+                LOGGER.debug("find (standort): {}", krankenhaeuser);
+                return krankenhaeuser;
+            }
+        }
+
+        final var krankenhaeuser = krankenhausRepository.find(suchkriterien);
+        if (krankenhaeuser.isEmpty()) {
+            throw new NotFoundException(suchkriterien);
+        }
+        LOGGER.debug("find: {}", krankenhaeuser);
+        return krankenhaeuser;
     }
 
     /**
@@ -52,11 +80,11 @@ public class KrankenhausReadService {
      * @return das gefundene Krankenhaus
      * @throws IllegalArgumentException wenn kein Krankenhaus für die angegebene ID gefunden wurde
      */
-    public @NonNull Krankenhaus getByID(String id) {
+    public @NonNull Krankenhaus findById(String id) {
         LOGGER.debug("Starte Suche nach Krankenhaus mit id: {}", id);
 
-        Krankenhaus krankenhaus = krankenhausRepository.getByID(id)
-            .orElseThrow(() -> new IllegalArgumentException("Kein Krankenhaus für die angegebene id gefunden."));
+        Krankenhaus krankenhaus = krankenhausRepository.findByID(id)
+            .orElseThrow(() -> new NotFoundException(id));
 
         LOGGER.debug("Suche nach Krankenhaus mit id beendet");
         return krankenhaus;

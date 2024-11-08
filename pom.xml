@@ -24,7 +24,6 @@
     1) Microservice uebersetzen und starten
         .\mvnw compile
         .\mvnw test-compile
-        .\mvnw test-compile -P docker-compose
         .\mvnw spring-boot:run
         .\mvnw spring-boot:run -P !tracing
         .\mvnw -debug spring-boot:run -P !observability
@@ -109,13 +108,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.acme</groupId>
-    <artifactId>kunde</artifactId>
+    <artifactId>krankenhaus</artifactId>
     <version>2024.10.1</version>
     <!-- <version>2024.10.2</version> -->
     <!-- <version>2024.10.3</version> -->
     <packaging>jar</packaging>
 
-    <name>kunde</name>
+    <name>krankenhaus</name>
     <description>Beispielprojekt fuer Softwarearchitektur</description>
     <url>${project.organization.url}</url>
     <inceptionYear>2016</inceptionYear>
@@ -152,7 +151,9 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.0-RC1</version>
+        <!-- TODO https://github.com/spring-projects/spring-boot/issues/42952 -->
+        <version>3.4.0-SNAPSHOT</version>
+        <!-- <version>3.4.0-RC1</version> -->
         <relativePath/>
     </parent>
 
@@ -165,7 +166,7 @@
         <enable.preview>--enable-preview</enable.preview>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <kotlin.version>2.1.0-Beta2</kotlin.version>
+        <kotlin.version>2.1.0-RC</kotlin.version>
         <kotlin.compiler.languageVersion>2.0</kotlin.compiler.languageVersion>
         <kotlin.compiler.apiVersion>2.0</kotlin.compiler.apiVersion>
         <kotlin.compiler.jvmTarget>${java.version}</kotlin.compiler.jvmTarget>
@@ -177,7 +178,7 @@
         <jansi.version>2.4.1</jansi.version>
         <mapstruct.version>1.6.2</mapstruct.version>
         <springdoc-openapi.version>2.6.0</springdoc-openapi.version>
-        <spring-addons-starter-oidc.version>7.9.0-M5</spring-addons-starter-oidc.version>
+        <spring-addons-starter-oidc.version>8.0.0-RC1</spring-addons-starter-oidc.version>
 
         <!-- B O M s   u n d   s p e z i f i s c h e   V e r s i o n e n   u e b e r s c h r e i b e n -->
         <allure-bom.version>2.29.0</allure-bom.version>
@@ -195,7 +196,7 @@
         <!-- <hibernate-jpamodelgen.version>6.5.0.Final</hibernate-jpamodelgen.version> -->
         <hibernate-validator.version>9.0.0.Beta3</hibernate-validator.version>
         <hikaricp.version>6.0.0</hikaricp.version>
-        <!-- <jackson-bom.version>2.18.0</jackson-bom.version> -->
+        <jackson-bom.version>2.18.1</jackson-bom.version>
         <jakarta-persistence.version>3.2.0</jakarta-persistence.version>
         <!-- <jakarta-persistence.version>3.2.0-M2</jakarta-persistence.version> -->
         <!-- <jakarta-persistence.version>3.1.0</jakarta-persistence.version> -->
@@ -229,12 +230,12 @@
 
         <!-- C o d e a n a l y s e ,   R e p o r t s ,   D o k u m e n t a t i o n -->
         <allure-junit.version>2.29.0</allure-junit.version>
-        <allure-commandline.version>2.31.0</allure-commandline.version>
+        <allure-commandline.version>2.32.0</allure-commandline.version>
         <asciidoctorj.version>3.0.0</asciidoctorj.version>
         <asciidoctorj-diagram.version>2.3.1</asciidoctorj-diagram.version>
         <asciidoctorj-pdf.version>2.3.19</asciidoctorj-pdf.version>
         <aspectjweaver.version>1.9.9.1</aspectjweaver.version>
-        <checkstyle.version>10.19.0</checkstyle.version>
+        <checkstyle.version>10.20.0</checkstyle.version>
         <detekt.version>1.23.7</detekt.version>
         <errorprone.version>2.35.1</errorprone.version>
         <jacoco.version>0.8.12</jacoco.version>
@@ -244,8 +245,8 @@
 
         <!-- Plugins -->
         <allure-maven-plugin.version>2.14.0</allure-maven-plugin.version>
-        <asciidoctor-maven-plugin.version>3.0.0</asciidoctor-maven-plugin.version>
-        <dependency-check-maven.version>11.0.0</dependency-check-maven.version>
+        <asciidoctor-maven-plugin.version>3.1.0</asciidoctor-maven-plugin.version>
+        <dependency-check-maven.version>11.1.0</dependency-check-maven.version>
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
         <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
         <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
@@ -254,12 +255,12 @@
         <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
         <maven-help-plugin.version>3.5.1</maven-help-plugin.version>
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
-        <maven-javadoc-plugin.version>3.10.1</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.11.1</maven-javadoc-plugin.version>
         <maven-jxr-plugin.version>3.6.0</maven-jxr-plugin.version>
         <maven-project-info-reports-plugin.version>3.8.0</maven-project-info-reports-plugin.version>
         <maven-site-plugin.version>4.0.0-M16</maven-site-plugin.version>
-        <maven-surefire-plugin.version>3.5.1</maven-surefire-plugin.version>
-        <maven-surefire-report-plugin.version>3.5.1</maven-surefire-report-plugin.version>
+        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+        <maven-surefire-report-plugin.version>3.5.2</maven-surefire-report-plugin.version>
         <maven-toolchains-plugin.version>3.2.0</maven-toolchains-plugin.version>
         <maven-wrapper-plugin.version>3.3.2</maven-wrapper-plugin.version>
         <modernizer-maven-plugin.version>2.9.0</modernizer-maven-plugin.version>
@@ -267,8 +268,7 @@
         <sonar-maven-plugin.version>4.0.0.4121</sonar-maven-plugin.version>
         <spotbugs-maven-plugin.version>4.8.6.5</spotbugs-maven-plugin.version>
         <spotless.version>2.44.0.BETA4</spotless.version>
-        <!-- <spring-boot-plugin.version>3.3.1</spring-boot-plugin.version> -->
-        <surefire-junit-platform.version>3.5.1</surefire-junit-platform.version>
+        <surefire-junit-platform.version>3.5.2</surefire-junit-platform.version>
         <versions-maven-plugin.version>2.17.1</versions-maven-plugin.version>
 
         <sonar.organization>Softwarearchitektur und Microservices</sonar.organization>
@@ -287,6 +287,20 @@
             <id>plugin-repository.spring.milestone</id>
             <url>https://repo.spring.io/milestone</url>
         </pluginRepository>
+        <!-- TODO https://github.com/spring-projects/spring-boot/issues/42952 -->
+        <!--
+        -->
+        <pluginRepository>
+            <id>repository.spring.snapshot</id>
+            <name>Spring Snapshot Repository</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
     </pluginRepositories>
 
     <repositories>
@@ -296,7 +310,9 @@
             <url>https://repo.spring.io/milestone</url>
         </repository>
 
+        <!-- TODO https://github.com/spring-projects/spring-boot/issues/42952 -->
         <!--
+        -->
         <repository>
             <id>repository.spring.snapshot</id>
             <name>Spring Snapshot Repository</name>
@@ -308,7 +324,6 @@
                 <enabled>true</enabled>
             </snapshots>
           </repository>
-        -->
         <!--
         <repository>
             <id>repository.hibernate.snapshot</id>
@@ -458,6 +473,7 @@
             </dependency>
             -->
             <!--
+            -->
             <dependency>
                 <groupId>com.fasterxml.jackson</groupId>
                 <artifactId>jackson-bom</artifactId>
@@ -465,7 +481,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            -->
             <!--
             <dependency>
                 <groupId>io.netty</groupId>
@@ -870,9 +885,10 @@
                         <!-- https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image.examples.buildpacks -->
                         <!-- https://paketo.io/docs/howto/java/#use-an-alternative-jvm -->
 
-                        <!-- Eclipse Temurin: https://github.com/paketo-buildpacks/adoptium/releases: JRE 8, 11, 17 (default, siehe buildpack.toml), 21, 23 -->
-                        <!-- Azul Zulu: https://github.com/paketo-buildpacks/azul-zulu/releases: JRE 8, 11, 17 (default, siehe buildpack.toml), 21, 23 -->
-                        <!-- SapMachine: https://github.com/paketo-buildpacks/sap-machine/releases: JRE 11, 17 (default, siehe buildpack.toml: BP_JVM_VERSION), 21, 23 -->
+                        <!-- Eclipse Temurin: https://github.com/paketo-buildpacks/bellsoft-liberica/releases: JRE 8, 11, 17, 21 (default, siehe buildpack.toml), 23 -->
+                        <!-- Eclipse Temurin: https://github.com/paketo-buildpacks/adoptium/releases: JRE 8, 11, 17, 21 (default, siehe buildpack.toml), 23 -->
+                        <!-- Azul Zulu: https://github.com/paketo-buildpacks/azul-zulu/releases: JRE 8, 11, 17, 21 (default, siehe buildpack.toml), 23 -->
+                        <!-- SapMachine: https://github.com/paketo-buildpacks/sap-machine/releases: JRE 11, 17, 21 (default, siehe buildpack.toml: BP_JVM_VERSION), 23 -->
                         <buildpacks>
                             <buildpack>paketobuildpacks/${paketobuildpacks.jre}</buildpack>
                             <buildpack>paketobuildpacks/java:${paketobuildpacks.java.version}</buildpack>
@@ -1496,18 +1512,6 @@
                 <dependency>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-graphql</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <profile>
-            <id>docker-compose</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-docker-compose</artifactId>
-                    <scope>runtime</scope>
-                    <optional>true</optional>
                 </dependency>
             </dependencies>
         </profile>

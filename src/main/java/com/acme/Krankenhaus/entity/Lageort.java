@@ -80,8 +80,7 @@ public class Lageort {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Lageort lageort = (Lageort) o;
+        if (!(o instanceof Lageort lageort)) return false;
         return Objects.equals(stadt, lageort.stadt) &&
             Objects.equals(strasse, lageort.strasse) &&
             Objects.equals(plz, lageort.plz);
