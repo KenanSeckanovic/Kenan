@@ -9,8 +9,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.UUID;
+import java.util.stream.IntStream;
+
 import static com.acme.Krankenhaus.repository.KrankenhausDB.KRANKENHAUSER;
 import static java.util.Collections.emptyList;
+import static java.util.UUID.randomUUID;
 
 /**
  * Repository-Klasse für den Zugriff auf {@link Krankenhaus}-Daten.
@@ -116,4 +121,48 @@ public class KrankenhausRepository {
         LOGGER.debug("findByStandort: krankenhaeuser={}", krankenhaeuser);
         return krankenhaeuser;
     }
+
+    public @NonNull Krankenhaus create(final @NonNull Krankenhaus krankenhaus) {
+        LOGGER.debug("create: {}", krankenhaus);
+        krankenhaus.setUuid(randomUUID());
+        KRANKENHAUSER.add(krankenhaus);
+        LOGGER.debug("create: {}", krankenhaus);
+        return krankenhaus;
+    }
+
+    public void update(final @NonNull Krankenhaus krankenhaus) {
+        LOGGER.debug("update: {}", krankenhaus);
+        final OptionalInt index = IntStream
+            .range(0, KRANKENHAUSER.size())
+            .filter(i -> Objects.equals(KRANKENHAUSER.get(i).getUuid(), krankenhaus.getUuid()))
+            .findFirst();
+        LOGGER.trace("update: index={}", index);
+        if (index.isEmpty()) {
+            return;
+        }
+        KRANKENHAUSER.set(index.getAsInt(), krankenhaus);
+        LOGGER.debug("update: {}", krankenhaus);
+    }
+
+    public void deleteById(final UUID id) {
+        LOGGER.debug("deleteById: id={}", id);
+        final OptionalInt index = IntStream
+            .range(0, KRANKENHAUSER.size())
+            .filter(i -> Objects.equals(KRANKENHAUSER.get(i).getUuid(), id))
+            .findFirst();
+        LOGGER.trace("deleteById: index={}", index);
+        index.ifPresent(KRANKENHAUSER::remove);
+        LOGGER.debug("deleteById: #KRANKENHAEUSER={}", KRANKENHAUSER.size());
+    }
+
+    public boolean isEmailExisting(final String email) {
+        LOGGER.debug("isEmailExisting: email={}", email);
+        final var count = KRANKENHAUSER.stream()
+            .filter(krankenhaus -> krankenhaus.getEmail().contentEquals(email))
+            .count();
+        LOGGER.debug("isEmailExisting: count={}", count);
+        return count > 0L;
+    }
+
+
 }

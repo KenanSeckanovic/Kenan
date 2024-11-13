@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class KrankenhausBuilder {
 
+    private String email;
     private String name;
     private Lageort lageort;
     private int kapazitaet;
@@ -32,6 +33,11 @@ public class KrankenhausBuilder {
      */
     public static KrankenhausBuilder getBuilder (){
         return new KrankenhausBuilder();
+    }
+
+    public KrankenhausBuilder setEmail(String email) {
+        this.email = email;
+        return this;
     }
 
     /**
@@ -84,6 +90,6 @@ public class KrankenhausBuilder {
      * @return ein neues Krankenhaus-Objekt
      */
     public Krankenhaus createKrankenhaus() {
-        return new Krankenhaus(name, lageort, kapazitaet, patient);
+        return new Krankenhaus(email, name, lageort, kapazitaet, patient);
     }
 }

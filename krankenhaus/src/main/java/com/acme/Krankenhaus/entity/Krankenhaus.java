@@ -8,7 +8,8 @@ import java.util.UUID;
  * Repräsentiert ein Krankenhaus mit Standort und Patienteninformationen.
  */
 public class Krankenhaus {
-    final private UUID uuid;
+    private UUID uuid;
+    private String email;
     private String name;
     private Lageort lageort;
     private int kapazitaet;
@@ -22,8 +23,9 @@ public class Krankenhaus {
      * @param kapazitaet die maximale Kapazität des Krankenhauses
      * @param patient    der aktuelle Patient im Krankenhaus
      */
-    public Krankenhaus(final String name, final Lageort lageort, final int kapazitaet, final List<Patient> patient) {
+    public Krankenhaus(final String email, final String name, final Lageort lageort, final int kapazitaet, final List<Patient> patient) {
         this.uuid = UUID.randomUUID();
+        this.email = email;
         this.name = name;
         this.lageort = lageort;
         this.kapazitaet = kapazitaet;
@@ -37,6 +39,14 @@ public class Krankenhaus {
      */
     public UUID getUuid() {
         return uuid;
+    }
+
+    public void setUuid(final UUID uuid) { this.uuid = uuid;}
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     /**
@@ -127,6 +137,7 @@ public class Krankenhaus {
     public String toString() {
         return "Krankenhaus{" +
             "uuid=" + uuid +
+            ", email='" + email + '\'' +
             ", name='" + name + '\'' +
             ", lageort='" + lageort + '\'' +
             ", kapazitaet=" + kapazitaet +
